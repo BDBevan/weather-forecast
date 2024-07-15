@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
+    <title>Brad's Weather Dashboard</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <header>
         <h1>Weather Dashboard</h1>
-        <form id="city-form">
-            <input type="text" id="city-input" placeholder="Enter city name" required>
-            <button type="submit">Search</button>
-        </form>
     </header>
     <main>
-        <section id="current-weather">
-            <h2>Current Weather</h2>
-            <div id="current-weather-details"></div>
-        </section>
-        <section id="future-weather">
-            <h2>5-Day Forecast</h2>
-            <div id="forecast-container"></div>
-        </section>
-        <section id="search-history">
-            <h2>Search History</h2>
+        <section id="search-section">
+            <form id="city-form">
+                <input type="text" id="city-input" placeholder="Search for you desired city" required>
+                <button type="submit">Search</button>
+            </form>
             <ul id="history-list"></ul>
+        </section>
+        <section id="weather-section">
+            <div id="current-weather">
+                <h2 id="current-city"></h2>
+                <div id="current-weather-details"></div>
+            </div>
+            <div id="future-weather">
+                <h2>5-Day Forecast:</h2>
+                <div id="forecast-container"></div>
+            </div>
         </section>
     </main>
     <script src="./assets/js/script.js"></script>
