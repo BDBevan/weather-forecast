@@ -93,10 +93,10 @@ button {
 }
 
 #forecast-container > div {
-    width: 18%;
+    width: 15%;
     background-color: #2f3e4e;
     color: white;
-    /*padding: 1rem; */
+    padding: 1rem;
     border-radius: 8px;
     text-align: center;
 }
