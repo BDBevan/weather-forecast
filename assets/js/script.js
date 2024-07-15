@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    loadSearchHistory();
+});
+
 document.getElementById('city-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const city = document.getElementById('city-input').value;
@@ -37,7 +41,7 @@ function displayForecast(data) {
     const forecastContainer = document.getElementById('forecast-container');
     forecastContainer.innerHTML = '';
     for (let i = 1; i <= 5; i++) {
-        const forecast = data.list[i * 6]; 
+        const forecast = data.list[i * 7];
         const forecastItem = document.createElement('div');
         forecastItem.innerHTML = `
             <p>${new Date(forecast.dt_txt).toLocaleDateString()}</p>
@@ -51,6 +55,22 @@ function displayForecast(data) {
 }
 
 function addCityToHistory(city) {
+    let cities = JSON.parse(localStorage.getItem('cities')) || [];
+    if (!cities.includes(city)) {
+        cities.push(city);
+        localStorage.setItem('cities', JSON.stringify(cities));
+        renderCityInHistory(city);
+    }
+}
+
+function loadSearchHistory() {
+    let cities = JSON.parse(localStorage.getItem('cities')) || [];
+    cities.forEach(city => {
+        renderCityInHistory(city);
+    });
+}
+
+function renderCityInHistory(city) {
     const historyList = document.getElementById('history-list');
     const historyItem = document.createElement('li');
     historyItem.textContent = city;
